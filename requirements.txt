@@ -1,0 +1,12 @@
+# Python 3.11 recommended (tested with 3.11.8)
+numpy==2.4.4
+pandas==2.3.3
+scikit-learn==1.7.2
+joblib==1.5.3
+tensorflow==2.20.0
+tensorflow-hub==0.16.1
+librosa==0.11.0
+soundfile==0.13.1
+tqdm==4.67.3
+# CUDA 12 libraries (same as thesis models/perch2/env — required for TF GPU)
+jax[cuda12]>=0.4.20

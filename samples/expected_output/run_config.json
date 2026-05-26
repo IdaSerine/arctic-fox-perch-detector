@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-26T19:21:22.966039",
+  "audio_dir": "/home/idasbjo/Master-Thesis/YOLO-Detector/arctic-fox-perch-detector/samples/input",
+  "output_dir": "/home/idasbjo/Master-Thesis/YOLO-Detector/arctic-fox-perch-detector/samples/expected_output",
+  "checkpoint": "/home/idasbjo/Master-Thesis/YOLO-Detector/arctic-fox-perch-detector/models/lr_nestedcv_final_C0.01.joblib",
+  "n_files": 2,
+  "thresholds": [
+    0.01,
+    0.6
+  ],
+  "hop_ratio": 0.5,
+  "merge_iou": 0.3,
+  "confidence_mode": "fox_vs_noise_winner",
+  "filter_noise": true,
+  "combined_csvs": {
+    "0.01": "samples/expected_output/all_detections.csv",
+    "0.6": "samples/expected_output/all_detections_conf0.60.csv"
+  }
+}
