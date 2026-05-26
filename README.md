@@ -27,13 +27,13 @@ If TensorFlow reports no GPU (`Cannot dlopen some GPU libraries`), install CUDA 
 pip install 'jax[cuda12]>=0.4.20'
 ```
 
-**Smoke test** (2 short files, ~30 s on GPU):
+**Smoke test** (2 files):
 
 ```bash
 python run_detector.py --audio-dir samples/input --output-dir output/smoke_test
 ```
 
-**Full bundled test set** (30 × 10 min files, ~2 h on one GPU):
+**Full bundled test set** (30 × 10 min files):
 
 ```bash
 python run_detector.py --audio-dir samples/test_30_files --output-dir output/test_30_files
@@ -76,7 +76,7 @@ See [`requirements.txt`](requirements.txt). Main dependencies:
 ```bash
 cd arctic-fox-perch-detector
 bash scripts/setup_venv.sh
-source .venv/bin/activate   # required — system python has no tensorflow
+source .venv/bin/activate   
 ```
 
 Then run with `python run_detector.py ...` (uses the activated venv).
@@ -161,7 +161,6 @@ Same behaviour as `pipelines/detect.py` in the thesis repo (`run_perch_standalon
 | **Sample rate** | **Any** (e.g. 16 kHz, 48 kHz — no need to resample beforehand) |
 | **Duration** | Any; files shorter than 5 s are **zero-padded** to one window |
 
-You do **not** need to resample files before running the detector. The code resamples every file to **32 kHz** internally before Perch embedding (required by the Perch v2 model). That matches the thesis inference runs on `sigma2_year` and other folders where native rates vary.
 
 **Internal processing (fixed):**
 
