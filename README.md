@@ -12,6 +12,37 @@ The pipeline:
 
 ---
 
+## Quick start
+
+```bash
+git clone https://github.com/IdaSerine/arctic-fox-perch-detector.git
+cd arctic-fox-perch-detector
+bash scripts/setup_venv.sh
+source .venv/bin/activate
+```
+
+If TensorFlow reports no GPU (`Cannot dlopen some GPU libraries`), install CUDA 12 libraries:
+
+```bash
+pip install 'jax[cuda12]>=0.4.20'
+```
+
+**Smoke test** (2 short files, ~30 s on GPU):
+
+```bash
+python run_detector.py --audio-dir samples/input --output-dir output/smoke_test
+```
+
+**Full bundled test set** (30 × 10 min files, ~2 h on one GPU):
+
+```bash
+python run_detector.py --audio-dir samples/test_30_files --output-dir output/test_30_files
+```
+
+Outputs: `all_detections.csv` (threshold 0.01) and `all_detections_conf0.60.csv` (threshold 0.6), plus per-file CSVs under `labels/` and `labels_conf0.60/`.
+
+---
+
 ## 1. Python version
 
 **Python 3.11** (tested with **3.11.8**).
